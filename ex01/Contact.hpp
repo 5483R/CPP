@@ -1,5 +1,5 @@
 #ifndef CONTACT_HPP
-# define CONTACT_HPP
+#define CONTACT_HPP
 
 #include <iostream>
 class Contact{
@@ -19,7 +19,7 @@ class Contact{
         void set_sname(std::string sname);
         void set_contact(int contact);
         void set_fname(std::string fname);
-        void set_surnomn(std::string surnom);
+        void set_surnom(std::string surnom);
         void set_secret(std::string secret);
         
 };

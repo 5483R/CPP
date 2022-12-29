@@ -11,7 +11,14 @@ void Contact::set_fname(std::string fname)
 void Contact::set_contact(int contact)
 {
     this->contact = contact;
-    
+}
+void Contact::set_surnom(std::string surnom)
+{
+    this->surnom = surnom;
+}
+void Contact::set_secret(std::string secret)
+{
+    this->secret = secret;
 }
 std::string Contact::get_fname()
 {
@@ -30,7 +37,7 @@ std::string Contact::get_secret()
 {
     return this->secret;
 }
-std::string Contact::get_surnomn()
+std::string Contact::get_surnom()
 {
-    return this->surnomn;
+    return this->surnom;
 }
