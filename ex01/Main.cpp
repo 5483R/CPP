@@ -47,7 +47,21 @@ Phonebook ft_add(Phonebook phone, int i)
     phone.contact[i].set_surnom(in);
     return(phone);
 }
+void ft_search()
+{
+  std::string index;
+  std::string fname;
+  std::string sname;
+  std::string nick;
 
+  
+    std::cout << "------------------------------------------------------------------"<<std::endl;
+    while()
+    {
+
+    }
+    std::cout << "|" << "Index" << std::setw(10) << "First name" << std::setw(10) << std::setw(10) << "Last Name" << std::setw(10) << "Nickname"<<std::endl;
+}
 
 int main() {
     std::string choice;
@@ -67,7 +81,7 @@ int main() {
       }
       else if (choice == "SEARCH")
       {
-        printf("ENTER THE NAME\n");
+        ft_search();
       }
       else if (choice == "EXIT")
       {
