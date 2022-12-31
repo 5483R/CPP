@@ -47,37 +47,38 @@ Phonebook ft_add(Phonebook phone, int i)
     phone.contact[i].set_surnom(in);
     return(phone);
 }
-void ft_search()
+void ft_search(Phonebook Phone, int a)
 {
-  int i = 0;
-  std::string index;
-  std::string fname;
-  std::string sname;
-  std::string nick;
-
+    int i = 0;
+    std::string index;
+    int x = 0;
   
-    std::cout << "------------------------------------------------------------------"<<std::endl;
+    std::cout << "---------------------------------------------"<<std::endl;
     std::cout << "|Index     |First name|Last name |Nickname  |" <<std::endl;
-    while(i < this->Contact)
+    while(i <= a && !Phone.contact[i].get_fname().empty())
     {
       std::cout << "|";
-      std::cout << std::setw(10) << i << "|";
-      if(this->Contact[i].get_fname().length() > 10)
-          std::cout << std::setw(10) << this->Contact[i].get_fname().substr(0, 9) + "." << "|";
+      std::cout << i << std::setw(10) << "|";
+      if(Phone.contact[i].get_fname().length() > 10)
+          std::cout  << Phone.contact[i].get_fname().substr(0, 9) + "." << "|";
       else
-          std::cout << std::setw(10) << this->Contact[i].get_fname() >> "|";
-      if(this->Contact[i].get_sname().length() > 10)
-          std::cout << std::setw(10) << this->Contact[i].get_sname().substr(0, 9) + "." << "|";
+          std::cout << Phone.contact[i].get_fname() << std::setw(11 - Phone.contact[i].get_fname().length()) << "|";
+      if(Phone.contact[i].get_sname().length() > 10)
+          std::cout << Phone.contact[i].get_sname().substr(0, 9) + "." << "|";
       else
-          std::cout << std::setw(10) << this->Contact[i].get_sname() >> "|";
-      if(this->Contact[i].get_surnom().length() > 10)
-          std::cout << std::setw(10) << this->Contact[i].get_surnom().substr(0, 9) + "." << "|";
+          std::cout << Phone.contact[i].get_sname() << std::setw(11 - Phone.contact[i].get_sname().length()) << "|";
+      if(Phone.contact[i].get_surnom().length() > 10)
+          std::cout << Phone.contact[i].get_surnom().substr(0, 9) + "." << "|";
       else
-          std::cout << std::setw(10) << this->Contact[i].get_surnom() >> "|";
+          std::cout << Phone.contact[i].get_surnom() << std::setw(11 - Phone.contact[i].get_surnom().length()) << "|";
       std::cout << std::endl;
-      std::cout << "------------------------------------------------------------------"<<std::endl;
       i++;
     }
+    std::cout << "---------------------------------------------"<<std::endl;
+    std::cout << "choice the index of the contact" << std::endl;
+    std::getline(std::cin ,index);
+    x = std::stoi(index);
+    std::cout << Phone.contact[x].get_fname()<<std::endl;
 }
 
 int main() {
@@ -98,11 +99,11 @@ int main() {
       }
       else if (choice == "SEARCH")
       {
-        ft_search();
+        ft_search(phone, i);
       }
       else if (choice == "EXIT")
       {
-        printf("REALLY?\n");
+        std::cout << "DIR HA WHA" << std::endl;
       }
       i++;
       if(i == 8)
