@@ -3,7 +3,6 @@
 Phonebook ft_add(Phonebook phone, int i)
 {
     std::string in;
-    // int nb;
     std::cout<<"enter the first name"<<std::endl;
     std::getline(std::cin, in);
     while(in.empty())
@@ -27,14 +26,13 @@ Phonebook ft_add(Phonebook phone, int i)
       std::cout<<"try again"<<std::endl;
       std::getline(std::cin, in);
     }
-    // nb = atoi((const std::string)in);
-    phone.contact[i].set_contact(std::stoi(in));
+    phone.contact[i].set_contact(in);
     std::cout<<"enter the secret"<<std::endl;
     std::getline(std::cin, in);
     while(in.empty())
     {
       std::cout<<"try again"<<std::endl;
-      std::cin >> in;
+      std::getline(std::cin, in);
     }
     phone.contact[i].set_secret(in);
     std::cout<<"enter the nickname"<<std::endl;
@@ -42,7 +40,7 @@ Phonebook ft_add(Phonebook phone, int i)
     while(in.empty())
     {
       std::cout<<"try again"<<std::endl;
-      std::cin >> in;
+      std::getline(std::cin, in);
     }
     phone.contact[i].set_surnom(in);
     return(phone);
@@ -77,7 +75,19 @@ void ft_search(Phonebook Phone, int a)
     std::cout << "---------------------------------------------"<<std::endl;
     std::cout << "choice the index of the contact" << std::endl;
     std::getline(std::cin ,index);
-    x = std::stoi(index);
+    while(1)
+    {
+      if(index.length() == 1)
+      {
+        x = std::stoi(index);
+        break;
+      }
+      else
+      {
+        std::cout<<"try again"<<std::endl;
+        std::getline(std::cin ,index);
+      }
+    }
     std::cout << Phone.contact[x].get_fname()<<std::endl;
 }
 
