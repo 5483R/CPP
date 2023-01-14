@@ -10,14 +10,8 @@ class Fixed{
         Fixed(const float n);
         Fixed(const Fixed &oldobj);
         Fixed &operator=(Fixed const &obj);
-        float toFloat() const
-        {
-            return (a / (1 << nb));
-        };
-        float toInt() const
-        {
-            return (a / (1 << nb));
-        };
+        float toFloat() const;
+        float toInt() const;
         int getRawBits()const;
         void setRawBits(int const raw);
         ~Fixed();

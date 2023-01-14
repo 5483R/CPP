@@ -7,14 +7,21 @@ Fixed::Fixed()
 }
  Fixed::Fixed(const int n)
  {
-    this->a = n * (1 << nb);
+    this->a = (n * (float)(1 << nb));
  }
     
 Fixed::Fixed(const float n)
 {
-    a = roundf(n * (1 << nb));
+    a = roundf((float)n * (float)(1 << nb));
 }
-
+float Fixed::toFloat() const
+{
+    return(((float)this->a / (float)(1 << nb)));
+}
+float Fixed::toInt() const
+{
+    return(this->a >> this->nb);
+}
 Fixed::Fixed(const Fixed &oldobj)
 {
     std::cout << "Copy Constructor has been called" << std::endl;
