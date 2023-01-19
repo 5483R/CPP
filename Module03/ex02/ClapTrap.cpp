@@ -5,14 +5,14 @@ ClapTrap::ClapTrap()
     std::cout << "ClapTrap Default constructor " << std::endl;
     this->Hit_points = 100;
     this->Energy_points = 50;
-    this->Attack_damage = 20;
+    this->Attack_damage = 30;
 }
 ClapTrap::ClapTrap(std::string name)
 {
     std::cout << "ClapTrap Parameterized constructor " << std::endl;
-    this->Hit_points = 100;
-    this->Energy_points = 50;
-    this->Attack_damage = 20;
+    this->Hit_points = 10;
+    this->Energy_points = 10;
+    this->Attack_damage = 0;
     this->name = name;
 }
 ClapTrap::ClapTrap(const ClapTrap &obj)
@@ -22,7 +22,6 @@ ClapTrap::ClapTrap(const ClapTrap &obj)
 }
 ClapTrap &ClapTrap::operator=(const ClapTrap &obj)
 {
-    std::cout << "ClapTrap Operator overload" << std::endl;
     this->Hit_points = obj.Hit_points;
     this->Energy_points = obj.Energy_points;
     this->Attack_damage = obj.Attack_damage;
@@ -37,24 +36,26 @@ void ClapTrap::attack(const std::string& target)
 {
     if(Energy_points <= 0 || Hit_points <= 0)
     {
-        std::cout << this->name << " Dead !" <<std::endl;
+        std::cout << this->name << "Dead !" <<std::endl;
     }
-    else 
+    else
     {
+
         Hit_points -= 1;
         Energy_points -= 1;
-        std::cout << "ClapTrap " << this->name << " attacks " << target << " causing " << this->Attack_damage << " points of damage!"<< std::endl; 
+        std::cout << "ClapTrap " << this->name << "attacks " << target << " causing " << this->Attack_damage << " points of damage!"<< std::endl; 
     }
 }
 void ClapTrap::takeDamage(unsigned int amount)
 {
+
     this->Hit_points -= amount;
     if(Hit_points > 0)
      {
         std::cout << "ClapTrap " << this->name << " Take " << amount <<"damage!"<< std::endl;
      }
      else
-        std::cout<< "ClapTrap"  << this->name << "Already dead"<<std::endl;
+        std::cout<< this->name << "Already dead"<<std::endl;
 }
 void ClapTrap::beRepaired(unsigned int amount)
 {

@@ -2,23 +2,29 @@
 
 ClapTrap::ClapTrap()
 {
+    std::cout << "ClapTrap Default constructor " << std::endl;
     this->Hit_points = 10;
     this->Energy_points = 10;
     this->Attack_damage = 0;
 }
 ClapTrap::ClapTrap(std::string name)
 {
+    std::cout << "ClapTrap Parameterized constructor " << std::endl;
     this->Hit_points = 10;
     this->Energy_points = 10;
     this->Attack_damage = 0;
     this->name = name;
 }
+
 ClapTrap::ClapTrap(const ClapTrap &obj)
 {
+    std::cout << "ClapTrap Copy Constructor" << std::endl;
     *this = obj;
 }
+
 ClapTrap &ClapTrap::operator=(const ClapTrap &obj)
 {
+    std::cout << "ClapTrap Operator overload" << std::endl;
     this->Hit_points = obj.Hit_points;
     this->Energy_points = obj.Energy_points;
     this->Attack_damage = obj.Attack_damage;
@@ -26,6 +32,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &obj)
 }
 ClapTrap::~ClapTrap()
 {
+    std::cout << "ClapTrap Distructor" << std::endl;
 
 }
     

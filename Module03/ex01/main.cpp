@@ -2,8 +2,9 @@
 
 int main()
 {
-    ScavTrap saber;
+    ScavTrap saber("yassine");
 
-    saber.guardGate();
-
+    saber.attack("saber");
+    saber.takeDamage(100);
+    saber.attack("saber");
 }

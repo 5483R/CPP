@@ -5,14 +5,14 @@ ScavTrap::ScavTrap()
     std::cout << "ScavTrap Default constructor " << std::endl;
     this->Hit_points = 100;
     this->Energy_points = 50;
-    this->Attack_damage = 20;
+    this->Attack_damage = 30;
 }
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
     std::cout << "ScavTrap Parameterized constructor " << std::endl;
     this->Hit_points = 100;
-    this->Energy_points = 50;
-    this->Attack_damage = 20;
+    this->Energy_points = 100;
+    this->Attack_damage = 30;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &obj)
@@ -26,14 +26,14 @@ void ScavTrap::attack(const std::string& target)
 {
     if(Energy_points <= 0 || Hit_points <= 0)
     {
-        std::cout << this->name << " Dead !" <<std::endl;
+        std::cout << this->name << "Dead !" <<std::endl;
     }
     else
     {
 
         Hit_points -= 1;
         Energy_points -= 1;
-        std::cout << "ScavTrap " << this->name << " attacks " << target << " causing " << this->Attack_damage << " points of damage!"<< std::endl; 
+        std::cout << "ScavTrap " << this->name << "attacks " << target << " causing " << this->Attack_damage << " points of damage!"<< std::endl; 
     }
 }
 ScavTrap &ScavTrap::operator=(ScavTrap const &obj)
