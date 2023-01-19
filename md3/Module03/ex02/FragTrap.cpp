@@ -51,5 +51,10 @@ FragTrap::~FragTrap()
 }
 void FragTrap::highFivesGuys(void)
 {
-    std::cout << "FragTrap HIIIIGH FIVES" << std::endl;
+    if(Energy_points > 0 || Hit_points > 0)
+    {
+        std::cout << this->name << " FragTrap HIIIIGH FIVES" << std::endl;
+        return;
+    }
+    std::cout << this->name << " CAN'T FragTrap HIIIIGH FIVES" << std
 }
